@@ -19,6 +19,8 @@ gulp.task('nodemon:app', ['webpack:dev'], function () {
     });
 });
 
+gulp.task('build', ['webpack:prod']);
+
 gulp.task('webpack:prod', ['copy'], function() {
     gulp.src(path.resolve(webpackConfigPathProd))
         .pipe(webpack.compile());
