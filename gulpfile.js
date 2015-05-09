@@ -19,6 +19,11 @@ gulp.task('nodemon:app', ['webpack:dev'], function () {
     });
 });
 
+gulp.task('webpack:prod', ['copy'], function() {
+    gulp.src(path.resolve(webpackConfigPathProd))
+        .pipe(webpack.compile());
+});
+
 gulp.task('webpack:dev', ['copy'], function(cb) {
     gulp.src(path.resolve(webpackConfigPathDev))
         .pipe(webpack.compile(cb))
@@ -32,10 +37,4 @@ gulp.task('copy', ['clean'], function (cb) {
 
 gulp.task('clean', function (cb) {
     del(['build'], cb);
-});
-
-
-gulp.task('webpack:prod', ['clean', 'copy'], function() {
-    gulp.src(path.resolve(webpackConfigPathProd))
-        .pipe(webpack.compile());
 });
