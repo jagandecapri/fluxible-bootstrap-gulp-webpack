@@ -2,7 +2,12 @@
 var React = require('react');
 var NavLink = require('flux-router-component').NavLink;
 
-class Nav extends React.Component {
+var Bootstrap = require('react-bootstrap');
+var Navbar = Bootstrap.Navbar;
+var Nav = Bootstrap.Nav;
+var NavItem = Bootstrap.NavItem;
+
+class NavComponent extends React.Component {
     render() {
         const selected = this.props.selected;
         const links = this.props.links;
@@ -23,9 +28,9 @@ class Nav extends React.Component {
         });
 
         return (
-            <ul className="pure-menu pure-menu-open pure-menu-horizontal">
-                {linkHTML}
-            </ul>
+          <Navbar brand="Brand Name" fluid>
+              <ul className="nav navbar-nav">{linkHTML}</ul>
+          </Navbar>
         );
     }
 }
@@ -35,4 +40,4 @@ Nav.defaultProps = {
     links: {}
 };
 
-module.exports = Nav;
+module.exports = NavComponent;
