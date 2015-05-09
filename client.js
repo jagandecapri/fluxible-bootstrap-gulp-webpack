@@ -1,6 +1,7 @@
 /*global document, window */
 
-import React from 'react';
+import from './styles/app.less';
+import  from 'react';
 import debug from 'debug';
 import app from './app';
 
